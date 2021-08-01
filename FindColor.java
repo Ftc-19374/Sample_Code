@@ -54,7 +54,7 @@ public class FindColor extends LinearOpMode {
     /* next, we want to obtain a reading from the color sensor, and output the data to the robot
     controller.  The bigger picture is that we are going to need to know how the color sensor is
     "seeing" a color so that in future programs we can use these values for comparison and then
-    having the robot complete a task.
+    have the robot complete a task.
      */
     telemetry.addData("Red", color.red());
     telemetry.addData("Green", color.green());
