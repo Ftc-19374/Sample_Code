@@ -22,7 +22,7 @@ with a black image),and the robot will detect if the brick is yellow.
 If so, the robot will move forward for 1 second.  Otherwise, it will move backward for 1s.
  */
 
-@Autonomous(name="Color Sensing Fun")
+@Autonomous(name="Color Detecting")
 public class FindColor extends LinearOpMode {
 
     //declare motors - chassis is two motor pushbot
@@ -43,8 +43,8 @@ public class FindColor extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         motor1 = hardwareMap.dcMotor.get("motor1");
         motor2 = hardwareMap.dcMotor.get("motor2");
-        color = hardwareMap.get(ColorSensor.class, "color");
-        distance = hardwareMap.get(DistanceSensor.class, "distance");
+        color = hardwareMap.get(ColorSensor.class, "ColorSense");
+        //distance = hardwareMap.get(DistanceSensor.class, "DistanceSense");
 
     /* at this point, we don't want to do anything else until the start button is pressed on the
      robot controller
@@ -56,9 +56,11 @@ public class FindColor extends LinearOpMode {
     "seeing" a color so that in future programs we can use these values for comparison and then
     have the robot complete a task.
      */
-    telemetry.addData("Red", color.red());
-    telemetry.addData("Green", color.green());
-    telemetry.addData("Blue", color.blue());
-    telemetry.update();
+    while (opModeIsActive()){
+        telemetry.addData("Red", color.red());
+        telemetry.addData("Green", color.green());
+        telemetry.addData("Blue", color.blue());
+        telemetry.update();
+        }
     }
 }
